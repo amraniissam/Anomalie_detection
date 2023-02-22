@@ -55,8 +55,8 @@ So what we're going to do here is train our model on the normal data and then we
   
 <h3> Results </h3> 
 <p> 
-First we  plot the normal data (the actual data) and the auto-encoder output (the reconstructed data), the output data will be similar to the normal data but it will not be exactly same that may be some error, as we see below.
-the normal data that on the red color and the output data (reconstructed data) on blue color, and if we see there are some issues, this is called the reconstruction error it's the difference between the peaks for blue graph and the red graph. 
+First I plot the normal data (the actual data) and the auto-encoder output (the reconstructed data), the output data will be similar to the normal data but it will not be exactly same that may be some error, as we see below.
+The normal data with red color and the output data (reconstructed data) on blue color, and if we see there are some issues, this is called the reconstruction error, it's the difference between the peaks for blue graph and the red graph. 
 For normal data fitting is very well because our model was trained on normal data.
     <div align="center">
      <img src="/img/normal_prediction.png">
@@ -64,7 +64,7 @@ For normal data fitting is very well because our model was trained on normal dat
 </p>
 <p>   
   
-But let's see what happens if we pass to our model an anomaly data and after I plot how the anomaly test data and the auto-encoder output looks like. As we see below the anomaly test data on red color and the blue color refers to the auto-encoder output, if we see basically here the error is pretty high (the reconstruction error in this case is pretty high), because in this case our model is not able to reconstruct the input over here.
+But let's see what happens if we pass to our model an anomaly data. As we see below the anomaly test data on red color and the blue color refers to the auto-encoder output, if we see basically here the error is pretty high (the reconstruction error in this case is pretty high), because in this case our model is not able to reconstruct the input over here.
   <div align="center">
      <img src="/img/anomaly_prediction.png">
   </div>
@@ -72,7 +72,7 @@ But let's see what happens if we pass to our model an anomaly data and after I p
   
 <h3> Futur Detections </h3> 
 <p> 
-If we wanna classify the future activities in a normal behavior or an anomaly, we will define a loss threshold for our model, for that I was taking the normal test data and calling the model to predict an output for this data, then calculate the error between the inputs and outputs. I did the same thing for the anomaly test data, then I plot a histogramme for the different losses and I choose a threshold = avg(loss(normal Data) + 2*std (loss(normal Data)). 
+If we wanna classify the future activities in a normal behavior or an anomaly, I will define a loss threshold for our model, for that I was taking the normal test data and calling the model to predict an output for this data, then calculate the error between the inputs and outputs. I did the same thing for the anomaly test data, then I plot a histogramme for the different losses and I choose a threshold = avg(loss(normal Data) + 2*std (loss(normal Data)). 
    <div align="center">
      <img src="/img/threshold.png">
   </div>
