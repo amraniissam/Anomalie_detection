@@ -83,6 +83,10 @@ For futur activity
   
 </p> 
 
-  
- <footer>&copy; Copyright 2023 </footer>
+<p>
+    <div align="center">
+     <footer>&copy; Copyright 2023 </footer>
+  </div>
+</p> 
+ 
 
