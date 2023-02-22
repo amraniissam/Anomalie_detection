@@ -34,7 +34,7 @@ I plotted the first three recordings as you see below the activity is typically 
 <p>  
 <h4> Anomaly Data </h4>
 In contrary if we take the anomaly data, we see basically now the anomaly data it starts off to be normal but sudden there's a certain drop towards the last observation and we can really see like that is a separation between the normal and anomaly activity.
-<img src="/img/Anomaly_variation.png" align="center">
+<img src="/img/Anomaly_variation.png" text-align="center">
   
 </p> 
 
