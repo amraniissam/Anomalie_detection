@@ -2,7 +2,7 @@
 
 ## Description  
 <p>
-In this project we'll building an anomaly detector using auto-encoder using tensorflow
+In this project we'll building an anomaly detector using auto-encoder using tensorflow,
 </p>
 
 <h3> Import packages </h3>
@@ -19,7 +19,7 @@ An electrocardiogram (ECG) is a test that studies how the heart works by measuri
 
 An ECG measures and records the electrical activity that passes through the heart. A doctor can determine if the electrical activity is normal or irregular.
   
-This dataset contains information on normal and irregular cardiac activity. It contains 5000 observations containing both
+This dataset (<a href="https://www.timeseriesclassification.com/Downloads/ECG5000.zip">ECG5000</a> ) contains information on normal and irregular cardiac activity. It contains 5000 observations containing both
 normal heart activity and irregular activity.
  
 Each row (activity) contains 141 columns. 140 columns are used to measure cardiac activity and one column is the target (first column on the right), class number 1 refers to normal activity, classes number two, three, four and five correspond to irregular cardiac activity.
