@@ -28,7 +28,7 @@ Each row (activity) contains 141 columns. 140 columns are used to measure cardia
   
 <p>  
 <h4> Normal Data </h4>
-I plotted the first three recordings as you see below the activity is typically from 0 to 140 observations, the activity is basically up and down and that's how the normal pattern look like. At the beginning there is a drop because it is the beginning of the ECG measurement otherwise it is more towards the normal cyclic circle.
+I plotted the first three recordings as we see below the activity is typically from 0 to 140 observations, the activity is basically up and down and that's how the normal pattern look like. At the beginning there is a drop because it is the beginning of the ECG measurement otherwise it is more towards the normal cyclic circle.
   <div align="center">
      <img src="/img/normal_variation.png">
   </div>
@@ -50,39 +50,36 @@ After dividing the data into two parts: training data and test data, I divided e
 Our model is an auto-encoder consists of basically on an encoding part and a decoding part. The encoding part does it down sampling it first has 64 units 32 units 16 to 16 units and it finally has an 8 units intermediate layer, this intermediate layer is also called an bottleneck layer, it takes a data in a higher dimension and converts the data into a lower dimension similar to a data compression, what typically a data compression does it learns the embedding of the data into an eight unit vector right in this case, and then to reconstruct back the data again it uses an up sampler which is nothing but the inverse of the down sampler, so it takes 16 30 to 64 and finally the input for us is 140 units the output also will be 140 units 
 
   
-So what we're going to do here is train our model on the normal data and then we'll use the anomalies during the inference process to see how normal they are.
-The term reconstruction error is what we will use to determine if it is an anomaly or normal data.
+So what we're going to do here is train our model on the normal data and then we'll use the anomalies during the inference process to see how normal they are, so we take a normal data and train our model what is going to happen, the model going to kind of try to reconstruct the normal data because that is our objective to learn the normal data in a proper way but when an irregular data (anomaly data) comes in, it will not be able to reconstruct at all it will be completely the reconstruction error which means the difference between the input and the output, for the anomaly data will be very high compared to the normal data. The term reconstruction error is what we will use to determine if it is an anomaly or normal data.
+</p> 
   
+<h3> Results </h3> 
+<p> 
+First we  plot the normal data (the actual data) and the auto-encoder output (the reconstructed data), the output data will be similar to the normal data but it will not be exactly same that may be some error, as we see below.
+the normal data that on the red color and the output data (reconstructed data) on blue color, and if we see there are some issues, this is called the reconstruction error it's the difference between the peaks for blue graph and the red graph. 
+For normal data fitting is very well because our model was trained on normal data.
+    <div align="center">
+     <img src="/img/normal_prediction.png">
+  </div>
+</p>
+<p>   
   
-  now in the process of taking this data down
-sampling it and up sampling it that is some reconstruction error it's a lossy compression so the data
-output will not be perfect right now when we take a normal data and train this particular network
-what is going to happen is it's going to kind of try to reconstruct the normal data because that is our objective
-to learn the normal data in a proper way but when an irregular data that is the anomaly data comes in
-it will not be able to reconstruct at all it will be completely the reconstruction error the difference between the input and the
-output is called reconstruction error the reconstruction error for the anomaly data
+But let's see what happens if we pass to our model an anomaly data and after I plot how the anomaly test data and the auto-encoder output looks like. As we see below the anomaly test data on red color and the blue color refers to the auto-encoder output, if we see basically here the error is pretty high (the reconstruction error in this case is pretty high), because in this case our model is not able to reconstruct the input over here.
+  <div align="center">
+     <img src="/img/threshold.png">
+  </div>
+ </p> 
   
+<h3> Futur Detections </h3> 
+<p> 
+If we wanna classify the future activities in a normal behavior or an anomaly, we will define a loss threshold for our model, for that I was taking the normal test data and calling the model to predict an output for this data, then calculate the error between the inputs and outputs. I did the same thing for the anomaly test data, then I plot a histogramme for the different losses and I choose a threshold = avg(loss(normal Data) + 2*std (loss(normal Data)). 
+   <div align="center">
+     <img src="/img/anomaly_prediction.png">
+  </div>
   
-will be very high compared to the normal data and that's that's the thing we are going to use to determine whether the output is
-anomaly or normal right now when we see the graphs and everything we will get a better idea how it looks like
-even though it looks more theoretical now once we go into the graph you will be able to visualize it better
-now that two ways you this one way of creating a model the other way uh which we are going to
-use is is subclassing right the model subclassing uh parameter that is part of tensorflow 2.0
-and why we use it is it helps us to use the encoder and decoder separately
-easily and the top also i can use it i can go to the layers and use it but this gives me a better way of using the
-encoder and decoder suppose i want to use this model only for compressing the data or for
-compressing the visualization or take the output compression and run it with this xd boost or random
-forest model i can only use the encoder i don't need the decoder at all so this allows me to use the model in
-multiple different ways so in this case what i'm doing is i'm creating a class auto encoder right i'm creating an init function this
-  
-  
-  
-  
-  
-  
-  
-  
-  
+For futur activity 
+  if (the difference between the input and the output of the model > threshold)  Then the actibity will clasified as an anomaly.
+  else (the difference between the input and the output of the model < threshold) Then the actibity will clasified as an normal activity. 
   
 </p> 
 
