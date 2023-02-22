@@ -66,7 +66,7 @@ For normal data fitting is very well because our model was trained on normal dat
   
 But let's see what happens if we pass to our model an anomaly data and after I plot how the anomaly test data and the auto-encoder output looks like. As we see below the anomaly test data on red color and the blue color refers to the auto-encoder output, if we see basically here the error is pretty high (the reconstruction error in this case is pretty high), because in this case our model is not able to reconstruct the input over here.
   <div align="center">
-     <img src="/img/threshold.png">
+     <img src="/img/anomaly_prediction.png">
   </div>
  </p> 
   
@@ -74,9 +74,9 @@ But let's see what happens if we pass to our model an anomaly data and after I p
 <p> 
 If we wanna classify the future activities in a normal behavior or an anomaly, we will define a loss threshold for our model, for that I was taking the normal test data and calling the model to predict an output for this data, then calculate the error between the inputs and outputs. I did the same thing for the anomaly test data, then I plot a histogramme for the different losses and I choose a threshold = avg(loss(normal Data) + 2*std (loss(normal Data)). 
    <div align="center">
-     <img src="/img/anomaly_prediction.png">
+     <img src="/img/threshold.png">
   </div>
-  
+
 For futur activity 
   if (the difference between the input and the output of the model > threshold)  Then the actibity will clasified as an anomaly.
   else (the difference between the input and the output of the model < threshold) Then the actibity will clasified as an normal activity. 
