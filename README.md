@@ -27,12 +27,12 @@ Each row (activity) contains 141 columns. 140 columns are used to measure cardia
 <h3> Data Visualisation  </h3>
   
 <p>  
-<h5> Normal Data </h5>
+<h4> Normal Data </h4>
 I plotted the first three recordings as you see below the activity is typically from 0 to 140 observations, the activity is basically up and down and that's how the normal pattern look like. At the beginning there is a drop because it is the beginning of the ECG measurement otherwise it is more towards the normal cyclic circle.
-  <img src="/img/normal_variation.png" align="center">
+  <div><img src="/img/normal_variation.png" align="center"></div>
 </p>
 <p>  
-<h5> Anomaly Data </h5>
+<h4> Anomaly Data </h4>
 In contrary if we take the anomaly data, we see basically now the anomaly data it starts off to be normal but sudden there's a certain drop towards the last observation and we can really see like that is a separation between the normal and anomaly activity.
 <img src="/img/Anomaly_variation.png" align="center">
   
