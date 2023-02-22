@@ -2,7 +2,7 @@
 
 ## Description  
 <p>
-In this project we'll building an anomaly detector using auto-encoder using tensorflow,
+In this project we'll building an anomaly detector using auto-encoder using tensorflow, in order to detect the irregular cardiac activities.
 </p>
 
 <h3> Import packages </h3>
@@ -13,8 +13,6 @@ I will import the typical packages: pandas for reading the dataset, matplotlib f
 <h3> Data </h3>
 <p>
   
-I used the ECG5000 <a href="https://www.timeseriesclassification.com/Downloads/ECG5000.zip">Dataset</a>
-  
 An electrocardiogram (ECG) is a test that studies how the heart works by measuring its electrical activity. With each heartbeat, an electrical impulse (or "wave") passes through the heart. This wave causes the heart muscle to contract and expel blood from the heart. 
 
 An ECG measures and records the electrical activity that passes through the heart. A doctor can determine if the electrical activity is normal or irregular.
@@ -24,9 +22,15 @@ normal heart activity and irregular activity.
  
 Each row (activity) contains 141 columns. 140 columns are used to measure cardiac activity and one column is the target (first column on the right), class number 1 refers to normal activity, classes number two, three, four and five correspond to irregular cardiac activity.
   
+</p> 
+
+
+<h3> Model Training </h3>
+  
+<p>  
+  After splitting the data to two categories <b> normal </b> and <b> anomaly </b> data
   
 </p> 
-  
 
   
   
